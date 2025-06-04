@@ -1,0 +1,10 @@
+gcp:
+  project-id: 'your-gcp-project-id' # TODO: Replace with your GCP project ID
+  dataset-name: 'your_dataset_name'   # TODO: Replace with your BigQuery dataset name
+  table-name:
+    userprofile: 'user_profiles'      # TODO: Replace with your BigQuery table name for user profiles
+
+# Optional: Configure credentials if not using Application Default Credentials (ADC)
+#  credentials:
+#    location: 'path/to/your/service-account-key.json' # Example: /opt/gcp/credentials.json
+#    encoded-key: 'your-base64-encoded-service-account-key'
