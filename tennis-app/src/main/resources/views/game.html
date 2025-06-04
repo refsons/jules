@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tennis Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        .score-board { margin-bottom: 20px; font-size: 2em; padding: 10px; border: 1px solid #ccc; display: inline-block; }
+        .actions button { padding: 10px 20px; font-size: 1em; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Tennis Game</h1>
+
+    <div class="score-board">
+        <p>Current Score:</p>
+        <p th:text="${score}">Love-All</p>
+    </div>
+
+    <div class="actions">
+        <form th:action="@{/game/player1-scores}" method="post" style="display: inline;">
+            <button type="submit">Player 1 Scores</button>
+        </form>
+
+        <form th:action="@{/game/player2-scores}" method="post" style="display: inline;">
+            <button type="submit">Player 2 Scores</button>
+        </form>
+    </div>
+
+    <div th:if="${score != null && score.startsWith('Game ')}" style="margin-top: 20px;">
+        <p th:text="${score} + '. Game Over!'" style="font-weight: bold; color: green;"></p>
+        <form th:action="@{/game/}" method="get" style="display: inline;">
+             <button type="submit">New Game</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
